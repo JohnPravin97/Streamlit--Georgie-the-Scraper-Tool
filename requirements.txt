@@ -1,7 +1,7 @@
-pandas
-bs4
-PIL
-selenium
-streamlit
-SessionState
-urllib
+numpy==1.18.1
+streamlit==0.74.1
+pandas==1.0.1
+selenium==3.141.0
+beautifulsoup4==4.9.3
+ipython==7.19.0
+Pillow==8.1.0
