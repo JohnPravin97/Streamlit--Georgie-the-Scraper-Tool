@@ -1,1 +1,7 @@
-opencv-python
+pandas
+bs4
+PIL
+selenium
+streamlit
+SessionState
+urllib
