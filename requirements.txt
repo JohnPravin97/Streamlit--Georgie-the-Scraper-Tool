@@ -5,3 +5,4 @@ selenium==3.141.0
 beautifulsoup4==4.9.3
 ipython==7.19.0
 Pillow==8.1.0
+git+git://github.com/tvst/036da038ab3e999a64497f42de966a92.js
