@@ -14,7 +14,7 @@ def youtube_scraper(inp):
     
     Search = '+'.join(inp.split())
     
-    driver = webdriver.Chrome(executable_path=r'C:\Users\jpravijo\Desktop\Anaconda\chromedriver_win32 (3)\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='chromedriver.exe')
     driver.get('https://www.youtube.com/results?search_query='+Search)
     html = driver.page_source
     soup = BeautifulSoup(html)
@@ -56,7 +56,7 @@ def youtube_scraper(inp):
 @st.cache(suppress_st_warning=False)
 def relevant_book_scraper(inp):
     url = 'https://www.google.com//search?tbm=bks&q='+ inp
-    driver = webdriver.Chrome(executable_path=r'C:\Users\jpravijo\Desktop\Anaconda\chromedriver_win32 (3)\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -115,7 +115,7 @@ def book_details(df, index):
     index-=1
     url = df.iloc[index, 2]
     book_name = df.iloc[index, 0]
-    driver = webdriver.Chrome(executable_path=r'C:\Users\jpravijo\Desktop\Anaconda\chromedriver_win32 (3)\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -146,7 +146,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(executable_path=r'C:\Users\jpravijo\Desktop\Anaconda\chromedriver_win32 (3)\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -421,7 +421,7 @@ else:
                         
                         df = pd.DataFrame(dic, index=['Index'])
                     try:    
-                        filepath = r"C:\Users\jpravijo\Desktop\Anaconda\Celebrities_Images\\" + inp +".png"
+                        filepath = r".Celebrities_Images\\" + inp +".png"
                         urlretrieve(df.loc['Index','Image_Link'], filepath)
                         image = Image.open(filepath)
                         st.image(image)
