@@ -7,6 +7,7 @@ from selenium import webdriver
 import os
 import streamlit as st
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 try:
     import streamlit.ReportThread as ReportThread
     from streamlit.server.Server import Server
