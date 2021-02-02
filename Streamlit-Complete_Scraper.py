@@ -321,7 +321,7 @@ else:
                 spell_inp = spelling_checker(inp)
                 spell_inp, _ = process_inp(spell_inp)
                 checker = '/'+ spell_inp
-                books_save = pd.HDFStore(r'C:\Users\jpravijo\Desktop\Anaconda\Streamlit\bookscraper.h5')  
+                books_save = pd.HDFStore(r'bookscraper.h5')  
                 if checker in books_save.keys():
                      df = books_save.get(checker)
                 else:
@@ -411,7 +411,7 @@ else:
                 inp, name = process_inp(inp)
                 checker = '/'+inp
 
-                celebrity_save = pd.HDFStore(r'C:\Users\jpravijo\Desktop\Anaconda\Streamlit\celebrity.h5')               
+                celebrity_save = pd.HDFStore(r'celebrity.h5')               
                 try:
                     if checker in celebrity_save.keys():
                         df = celebrity_save.get(checker)
@@ -441,7 +441,7 @@ else:
                 no = cols[2].button('no')
                 celebrity_save.close()
                 if yes:
-                    celebrity_save = pd.HDFStore(r'C:\Users\jpravijo\Desktop\Anaconda\Streamlit\celebrity.h5')
+                    celebrity_save = pd.HDFStore('celebrity.h5')
                     celebrity_save.put(inp, df, data_columns=True)
                     celebrity_save.close()
                     found = df.index[df['Name']==name]
