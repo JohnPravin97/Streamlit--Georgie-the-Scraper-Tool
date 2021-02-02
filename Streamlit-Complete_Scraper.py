@@ -123,7 +123,7 @@ def book_details(df, index):
     content_list = []
     
     # Title page image scraping
-    filepath = r"C:\Users\jpravijo\Desktop\Anaconda\Book Images\\" + book_name + ".png"
+    filepath = r".\Book Images\\" + book_name + ".png"
     try:
         try:
             name = soup.find('div', class_="WnWrFd").text
