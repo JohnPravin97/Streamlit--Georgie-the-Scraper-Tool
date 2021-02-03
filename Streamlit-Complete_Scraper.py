@@ -112,7 +112,7 @@ def youtube_scraper(inp):
 @st.cache(suppress_st_warning=False)
 def relevant_book_scraper(inp):
     url = 'https://www.google.com//search?tbm=bks&q='+ inp
-    driver = webdriver.Chrome(executable_path='/home/JohnPravin97/Streamlit--Georgie-the-Scraper-Tool/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='/home/JohnPravin97/streamlit--georgie-the-scraper-tool/main/Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
