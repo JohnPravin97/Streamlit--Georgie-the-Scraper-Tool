@@ -6,7 +6,7 @@ from PIL import Image
 from selenium import webdriver
 import os
 import streamlit as st
-from chromedriver_py import binary_path
+import chromedriver_binary
 
 try:
     import streamlit.ReportThread as ReportThread
@@ -202,7 +202,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome('/path/to/chromedriver.exe')
+    driver = webdriver.Chrome(chromedriver_binary)
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
