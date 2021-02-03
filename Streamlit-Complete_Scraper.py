@@ -6,8 +6,8 @@ from PIL import Image
 from selenium import webdriver
 import os
 import streamlit as st
-import chromedriver_binary
-
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()
 try:
     import streamlit.ReportThread as ReportThread
     from streamlit.server.Server import Server
