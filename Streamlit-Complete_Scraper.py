@@ -171,7 +171,7 @@ def book_details(df, index):
     index-=1
     url = df.iloc[index, 2]
     book_name = df.iloc[index, 0]
-    driver = webdriver.Chrome(executable_path='/home/JohnPravin97/Streamlit--Georgie-the-Scraper-Tool/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='johnpravin97/streamlit--georgie-the-scraper-tool/main/Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -202,7 +202,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(executable_path='/home/JohnPravin97/Streamlit--Georgie-the-Scraper-Tool/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='johnpravin97/streamlit--georgie-the-scraper-tool/main/Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
