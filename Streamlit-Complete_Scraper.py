@@ -8,6 +8,7 @@ import os
 import streamlit as st
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
+import os
 
 try:
     import streamlit.ReportThread as ReportThread
@@ -352,6 +353,7 @@ if picks =='Tutorials':
 elif picks=='Exit':
     
     st.header('Hi There!!! You are Exited. Come Back Soon')
+    st.write(os.getcwd())
     
 else:
     '''
