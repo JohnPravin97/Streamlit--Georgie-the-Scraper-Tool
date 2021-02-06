@@ -7,6 +7,7 @@ from selenium import webdriver
 import os
 import streamlit as st
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 import os
 
 try:
@@ -203,7 +204,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install())
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
