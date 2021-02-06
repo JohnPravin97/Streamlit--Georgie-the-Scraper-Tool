@@ -6,7 +6,7 @@ from PIL import Image
 from selenium import webdriver
 import os
 import streamlit as st
-import webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 
 try:
