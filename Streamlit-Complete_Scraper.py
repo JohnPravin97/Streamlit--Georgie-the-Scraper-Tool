@@ -203,7 +203,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(ChromeDriverManager("2.26", log_level=0).install())
+    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
