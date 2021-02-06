@@ -5,9 +5,11 @@ from IPython.display import IFrame, display
 from PIL import Image
 from selenium import webdriver
 import os
+from seleniumbase import BaseCase
 import streamlit as st
 from webdriver_manager.chrome import ChromeDriverManager
 import os
+
 
 try:
     import streamlit.ReportThread as ReportThread
@@ -197,19 +199,19 @@ def book_details(df, index):
         content_list.append(content.text)
     return image, content_list
 
+class test_base(BaseCase):
+    def testing(self, url):
+        html = self.open(url)
+        return html
+    
 #Celebrity Scraper Functions
 @st.cache(suppress_st_warning=False)
 def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    #Add following options before initializing the webdriver
-    chromeOptions = webdriver.ChromeOptions()
-    chromeOptions.add_argument("--headless")
-    chromeOptions.add_argument("--remote-debugging-port=9222")
-    chromeOptions.add_argument('--no-sandbox')
-    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver',chrome_options=chromeOptions)
-    driver.get(url)
+    test = test_base()
+    driver = test.testing(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
     driver.close()
