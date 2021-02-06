@@ -202,7 +202,7 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/geckodriver.exe', )
+    driver = webdriver.Firefox(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/geckodriver.exe', )
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
