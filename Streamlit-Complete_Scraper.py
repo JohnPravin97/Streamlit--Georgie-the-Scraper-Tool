@@ -6,8 +6,6 @@ from PIL import Image
 from selenium import webdriver
 import os
 import streamlit as st
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
 import os
 
 try:
@@ -204,7 +202,9 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome("/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver.exe")
+    UA = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0'
+    PHANTOMJS_ARG = {'phantomjs.page.settings.userAgent': UA}
+    driver = webdriver.PhantomJS(desired_capabilities=PHANTOMJS_ARG)
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
