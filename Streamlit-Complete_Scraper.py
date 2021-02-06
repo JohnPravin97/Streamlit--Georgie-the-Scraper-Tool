@@ -72,7 +72,7 @@ def youtube_scraper(inp):
     
     Search = '+'.join(inp.split())
     
-    driver = webdriver.Chrome(executable_path='chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver.exe')
     driver.get('https://www.youtube.com/results?search_query='+Search)
     html = driver.page_source
     soup = BeautifulSoup(html)
@@ -114,7 +114,7 @@ def youtube_scraper(inp):
 @st.cache(suppress_st_warning=False)
 def relevant_book_scraper(inp):
     url = 'https://www.google.com//search?tbm=bks&q='+ inp
-    driver = webdriver.Chrome(executable_path='johnpravin97/streamlit--georgie-the-scraper-tool/main/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -173,7 +173,7 @@ def book_details(df, index):
     index-=1
     url = df.iloc[index, 2]
     book_name = df.iloc[index, 0]
-    driver = webdriver.Chrome(executable_path='johnpravin97/streamlit--georgie-the-scraper-tool/main/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -181,7 +181,7 @@ def book_details(df, index):
     content_list = []
     
     # Title page image scraping
-    filepath = r"\Book Images\\" + book_name + ".png"
+    filepath = r"/app/streamlit--georgie-the-scraper-tool/" + book_name + ".png"
     try:
         try:
             name = soup.find('div', class_="WnWrFd").text
@@ -380,7 +380,7 @@ else:
                 spell_inp = spelling_checker(inp)
                 spell_inp, _ = process_inp(spell_inp)
                 checker = '/'+ spell_inp
-                books_save = pd.HDFStore('bookscraper.h5')  
+                books_save = pd.HDFStore('/app/streamlit--georgie-the-scraper-tool/bookscraper.h5')  
                 if checker in books_save.keys():
                      df = books_save.get(checker)
                 else:
@@ -470,7 +470,7 @@ else:
                 inp, name = process_inp(inp)
                 checker = '/'+inp
 
-                celebrity_save = pd.HDFStore('celebrity.h5')               
+                celebrity_save = pd.HDFStore('/app/streamlit--georgie-the-scraper-tool/celebrity.h5')               
                 try:
                     if checker in celebrity_save.keys():
                         df = celebrity_save.get(checker)
@@ -480,7 +480,7 @@ else:
                         
                         df = pd.DataFrame(dic, index=['Index'])
                     try:    
-                        filepath = r".\Celebrities_Images\\" + inp +".png"
+                        filepath = r"/app/streamlit--georgie-the-scraper-tool/" + inp +".png"
                         urlretrieve(df.loc['Index','Image_Link'], filepath)
                         image = Image.open(filepath)
                         st.image(image)
@@ -500,7 +500,7 @@ else:
                 no = cols[2].button('no')
                 celebrity_save.close()
                 if yes:
-                    celebrity_save = pd.HDFStore('celebrity.h5')
+                    celebrity_save = pd.HDFStore('/app/streamlit--georgie-the-scraper-tool/celebrity.h5')
                     celebrity_save.put(inp, df, data_columns=True)
                     celebrity_save.close()
                     found = df.index[df['Name']==name]
