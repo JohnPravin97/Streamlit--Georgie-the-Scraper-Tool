@@ -203,7 +203,12 @@ def spelling_checker(x):
     crt_inp=''
     search = '+'.join(x.split())
     url='https://www.google.com/search?q='+ search
-    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver')
+    #Add following options before initializing the webdriver
+    chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.add_argument("--headless")
+    chromeOptions.add_argument("--remote-debugging-port=9222")
+    chromeOptions.add_argument('--no-sandbox')
+    driver = webdriver.Chrome(executable_path='/app/streamlit--georgie-the-scraper-tool/Webdriver/chromedriver',chrome_options=chromeOptions)
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
