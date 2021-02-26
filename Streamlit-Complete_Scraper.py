@@ -267,7 +267,7 @@ if picks =='Tutorials':
     '''
     # Welcome!! "Georgie the Scraper" is here to help you 
     '''
-    st.image('/app/streamlit--georgie-the-scraper-tool/download.jfif')
+    st.image('download.jfif')
     ''' Please expand each scrapers tab for their functionalities and implementations '''
     ys = st.beta_expander('Youtube Scraper', expanded=False)
     with ys:
