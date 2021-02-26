@@ -5,9 +5,7 @@ from IPython.display import IFrame, display
 from PIL import Image
 from selenium import webdriver
 import os
-from seleniumbase import BaseCase
 import streamlit as st
-from webdriver_manager.chrome import ChromeDriverManager
 import os
 
 
