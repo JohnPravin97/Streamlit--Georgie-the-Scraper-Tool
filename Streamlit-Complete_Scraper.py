@@ -71,7 +71,7 @@ def youtube_scraper(inp):
     
     Search = '+'.join(inp.split())
     
-    driver = webdriver.Chrome(executable_path='/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='Webdriver/chromedriver.exe')
     driver.get('https://www.youtube.com/results?search_query='+Search)
     html = driver.page_source
     soup = BeautifulSoup(html)
@@ -113,7 +113,7 @@ def youtube_scraper(inp):
 @st.cache(suppress_st_warning=False)
 def relevant_book_scraper(inp):
     url = 'https://www.google.com//search?tbm=bks&q='+ inp
-    driver = webdriver.Chrome(executable_path='/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
@@ -172,7 +172,7 @@ def book_details(df, index):
     index-=1
     url = df.iloc[index, 2]
     book_name = df.iloc[index, 0]
-    driver = webdriver.Chrome(executable_path='/Webdriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path='Webdriver/chromedriver.exe')
     driver.get(url)
     html = driver.page_source
     soup = BeautifulSoup(html,'lxml')
