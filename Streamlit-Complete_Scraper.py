@@ -196,11 +196,6 @@ def book_details(df, index):
     for i, content in enumerate(soup.find_all('div', class_="Z1hOCe")):
         content_list.append(content.text)
     return image, content_list
-
-class test_base(BaseCase):
-    def testing(self, url):
-        html = self.open(url)
-        return html
     
 #Celebrity Scraper Functions
 @st.cache(suppress_st_warning=False)
